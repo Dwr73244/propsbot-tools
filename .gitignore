@@ -1,0 +1,13 @@
+# Python
+*.pyc
+__pycache__/
+*.b64
+*.b64.flat
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
