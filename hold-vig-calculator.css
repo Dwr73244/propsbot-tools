@@ -1,0 +1,95 @@
+/* ==== Hold / Vig Calculator ====
+ * Append to the existing PropsBot Tools Calculator CSS (WPCode snippet 38192).
+ * Class scoping prevents bleed with .pb-ipc and .pb-parlay.
+ * Brand tokens, gradient, radius, and focus-visible patterns mirror the
+ * existing IPC + parlay scopes exactly.
+ */
+.pb-vig * { box-sizing: border-box; }
+.pb-vig {
+  --pb-teal: #15ffc2;
+  --pb-red: #ff1552;
+  --pb-gold: #f0c040;
+  --pb-blue: #22a9ec;
+  --pb-bg: #070e1a;
+  --pb-surface: rgba(15,28,46,0.6);
+  --pb-card: rgba(14,26,44,0.85);
+  --pb-text: #eef2f7;
+  --pb-text-2: rgba(200,215,230,0.78);
+  --pb-text-3: rgba(150,180,210,0.3);
+  --pb-border: rgba(100,200,220,0.07);
+  --pb-border-2: rgba(120,160,200,0.12);
+  --pb-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --pb-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --pb-grad: linear-gradient(135deg, #09d5a0, #22a9ec);
+
+  font-family: var(--pb-ui);
+  color: var(--pb-text);
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 28px;
+  background: linear-gradient(165deg, rgba(30,45,65,0.6), rgba(18,30,50,0.5)), var(--pb-card);
+  border: 1px solid var(--pb-border);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.pb-vig::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--pb-grad); }
+.pb-vig__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+.pb-vig__title { font-size: 18px; font-weight: 800; letter-spacing: -0.4px; margin: 0; color: var(--pb-text); }
+.pb-vig__brand { font-family: var(--pb-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--pb-teal); padding: 5px 10px; border-radius: 4px; background: rgba(21,255,194,0.06); border: 1px solid rgba(21,255,194,0.18); }
+
+/* Inputs: stacked on mobile, side-by-side on desktop */
+.pb-vig__inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+.pb-vig__field { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.pb-vig__label { font-size: 9px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: rgba(200,215,230,0.7); }
+.pb-vig__hint { font-size: 10px; font-weight: 400; color: rgba(200,215,230,0.55); margin-top: 2px; line-height: 1.4; }
+.pb-vig__input { width: 100%; padding: 14px 16px; background: rgba(8,16,28,0.7); border: 1.5px solid var(--pb-border-2); border-radius: 10px; color: var(--pb-text); font-family: var(--pb-mono); font-size: 20px; font-weight: 700; letter-spacing: -0.3px; outline: none; transition: border-color 160ms ease, background 160ms ease; min-height: 44px; }
+.pb-vig__input:focus, .pb-vig__input:focus-visible { border-color: rgba(21,255,194,0.5); background: rgba(8,16,28,0.85); outline: 2px solid var(--pb-teal); outline-offset: 2px; }
+.pb-vig__input::placeholder { color: rgba(150,180,210,0.4); font-weight: 400; }
+
+/* Quick examples row */
+.pb-vig__quick-label { font-size: 9px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: rgba(200,215,230,0.7); margin: 4px 0 8px; }
+.pb-vig__quick-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 4px; }
+.pb-vig__quick { padding: 12px 6px; background: rgba(8,16,28,0.5); border: 1px solid var(--pb-border-2); border-radius: 8px; color: var(--pb-text-2); font-family: var(--pb-mono); font-size: 12px; font-weight: 700; cursor: pointer; transition: all 140ms ease; text-align: center; min-height: 44px; }
+.pb-vig__quick:hover { background: rgba(21,255,194,0.05); border-color: rgba(21,255,194,0.3); color: var(--pb-teal); }
+.pb-vig__quick:focus-visible { outline: 2px solid var(--pb-teal); outline-offset: 2px; }
+
+/* Result card */
+.pb-vig__result { margin-top: 22px; padding: 22px; background: linear-gradient(160deg, rgba(21,255,194,0.05), rgba(8,16,28,0.7)); border: 1px solid rgba(21,255,194,0.16); border-radius: 12px; }
+.pb-vig__result--invalid { background: linear-gradient(160deg, rgba(255,21,82,0.06), rgba(8,16,28,0.7)); border-color: rgba(255,21,82,0.2); }
+
+.pb-vig__hold-block { padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(100,200,220,0.1); }
+.pb-vig__hold-label { font-size: 9px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; color: rgba(200,215,230,0.7); margin-bottom: 6px; }
+.pb-vig__hold-value { font-family: var(--pb-mono); font-size: 32px; font-weight: 900; letter-spacing: -0.8px; color: var(--pb-gold); line-height: 1.05; }
+.pb-vig__hold-value--invalid { color: var(--pb-red); font-size: 18px; font-weight: 700; }
+.pb-vig__hold-sub { margin-top: 8px; font-size: 11px; color: var(--pb-text-2); line-height: 1.4; }
+
+.pb-vig__sides { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.pb-vig__side { display: flex; flex-direction: column; gap: 10px; padding: 14px; background: rgba(8,16,28,0.45); border: 1px solid var(--pb-border-2); border-radius: 10px; }
+.pb-vig__side-head { font-family: var(--pb-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(200,215,230,0.75); padding-bottom: 6px; border-bottom: 1px solid rgba(100,200,220,0.08); }
+.pb-vig__metric { display: flex; flex-direction: column; gap: 2px; }
+.pb-vig__metric-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(200,215,230,0.6); }
+.pb-vig__metric-value { font-family: var(--pb-mono); font-size: 17px; font-weight: 800; letter-spacing: -0.3px; color: var(--pb-text); line-height: 1.15; }
+.pb-vig__metric-value--teal { color: var(--pb-teal); }
+.pb-vig__metric-value--gold { color: var(--pb-gold); }
+
+/* CTA */
+.pb-vig__cta { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 22px; padding: 16px 18px; background: linear-gradient(135deg, rgba(21,255,194,0.07), rgba(34,169,236,0.07)); border: 1px solid rgba(21,255,194,0.22); border-radius: 12px; flex-wrap: wrap; }
+.pb-vig__cta-text { font-size: 13px; font-weight: 600; color: var(--pb-text); letter-spacing: -0.1px; }
+.pb-vig__cta-text span { display: block; font-size: 11px; font-weight: 400; color: var(--pb-text-2); margin-top: 2px; letter-spacing: 0; }
+.pb-vig__cta-btn { padding: 12px 20px; background: var(--pb-grad); color: #051018; font-family: var(--pb-ui); font-size: 12px; font-weight: 800; letter-spacing: 0.3px; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; transition: transform 120ms ease, box-shadow 200ms ease; box-shadow: 0 4px 14px rgba(21,255,194,0.18); white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+.pb-vig__cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(21,255,194,0.28); }
+.pb-vig__cta-btn:active { transform: translateY(0); }
+.pb-vig__cta-btn:focus-visible { outline: 2px solid var(--pb-teal); outline-offset: 3px; }
+
+@media (max-width: 520px) {
+  .pb-vig { padding: 20px; margin: 20px 12px; }
+  .pb-vig__title { font-size: 16px; }
+  .pb-vig__inputs { grid-template-columns: 1fr; gap: 12px; }
+  .pb-vig__quick-grid { grid-template-columns: repeat(2, 1fr); }
+  .pb-vig__hold-value { font-size: 26px; }
+  .pb-vig__sides { grid-template-columns: 1fr; gap: 12px; }
+  .pb-vig__metric-value { font-size: 16px; }
+  .pb-vig__input { font-size: 18px; }
+}

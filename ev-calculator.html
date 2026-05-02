@@ -1,0 +1,64 @@
+<!-- PropsBot.AI — Expected Value (EV) Calculator widget
+     Self-contained HTML widget. Paste inside a WordPress Custom HTML block.
+     All styles scoped under .pb-ev to avoid theme conflicts.
+     CSS loaded via WPCode snippet (PropsBot Tools Calculator CSS).
+     JS loaded via WPCode snippet 38188 (PropsBot Tools Calculator JS).
+     Inputs are mounted programmatically — WP strips <input> from post content.
+-->
+<div class="pb-ev" role="region" aria-label="Expected Value Calculator">
+  <div class="pb-ev__header">
+    <h2 class="pb-ev__title">Expected Value (EV) Calculator</h2>
+    <span class="pb-ev__brand">PropsBot.AI</span>
+  </div>
+
+  <div class="pb-ev__field-row">
+    <label class="pb-ev__label" for="pb-ev-odds" id="pb-ev-odds-label">American Odds</label>
+    <div id="pb-ev-odds-mount"></div>
+    <div class="pb-ev__hint">Use a minus sign for favorites (e.g. -150) and a plus sign for underdogs (e.g. +200).</div>
+  </div>
+
+  <div class="pb-ev__field-row">
+    <label class="pb-ev__label" for="pb-ev-prob" id="pb-ev-prob-label">Your True Probability (%)</label>
+    <div class="pb-ev__suffix-wrap">
+      <div id="pb-ev-prob-mount"></div>
+      <span class="pb-ev__suffix">%</span>
+    </div>
+    <div class="pb-ev__hint">Your model's, AI's, or estimated probability that this bet wins (e.g. 55 for 55%).</div>
+  </div>
+
+  <div class="pb-ev__field-row">
+    <label class="pb-ev__label" for="pb-ev-bet" id="pb-ev-bet-label">Bet Amount</label>
+    <div class="pb-ev__prefix-wrap">
+      <span class="pb-ev__prefix">$</span>
+      <div id="pb-ev-bet-mount"></div>
+    </div>
+    <div class="pb-ev__hint">Stake size for one wager (e.g. 100).</div>
+  </div>
+
+  <div class="pb-ev__result" id="pb-ev-result" aria-live="polite">
+    <div class="pb-ev__verdict" id="pb-ev-verdict">Enter values above</div>
+
+    <div class="pb-ev__metrics">
+      <div class="pb-ev__metric">
+        <span class="pb-ev__metric-label">Expected Value</span>
+        <span class="pb-ev__metric-value" id="pb-ev-dollars">—</span>
+        <span class="pb-ev__metric-sub" id="pb-ev-pct">EV%: —</span>
+      </div>
+      <div class="pb-ev__metric">
+        <span class="pb-ev__metric-label">Edge</span>
+        <span class="pb-ev__metric-value pb-ev__metric-value--gold" id="pb-ev-edge">—</span>
+        <span class="pb-ev__metric-sub" id="pb-ev-implied">Book implied: —</span>
+      </div>
+    </div>
+
+    <div class="pb-ev__longrun" id="pb-ev-longrun">Long-run expected return on $1,000 of bets at this edge: —</div>
+  </div>
+
+  <div class="pb-ev__cta">
+    <div class="pb-ev__cta-text">
+      Stop guessing the true probability.
+      <span>PropsBot's AI gives every player prop a Confidence Score so you can spot +EV bets in seconds.</span>
+    </div>
+    <a class="pb-ev__cta-btn" href="https://app.propsbot.ai/" rel="noopener">Try PropsBot Free</a>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<!-- PropsBot.AI — Hold / Vig Calculator widget
+     Self-contained HTML structure only (no <style>, no <script>).
+     CSS loads via WPCode snippet 38192 (PropsBot Tools Calculator CSS).
+     JS loads via WPCode snippet 38188 (PropsBot Tools Calculator JS).
+     All styles scoped under .pb-vig to avoid theme conflicts.
+-->
+<!-- CSS loaded via WPCode CSS snippet (PropsBot Tools Calculator CSS) -->
+<div class="pb-vig" role="region" aria-label="Hold / Vig Calculator">
+  <div class="pb-vig__header">
+    <h2 class="pb-vig__title">Hold / Vig Calculator</h2>
+    <span class="pb-vig__brand">PropsBot.AI</span>
+  </div>
+
+  <div class="pb-vig__inputs">
+    <div class="pb-vig__field">
+      <label class="pb-vig__label" for="pb-vig-input1" id="pb-vig-input1-label">Side 1 Odds (American)</label>
+      <div id="pb-vig-input1-mount"></div>
+      <div class="pb-vig__hint">e.g. Over -110. Use a minus sign for favorites and a plus sign for underdogs.</div>
+    </div>
+    <div class="pb-vig__field">
+      <label class="pb-vig__label" for="pb-vig-input2" id="pb-vig-input2-label">Side 2 Odds (American)</label>
+      <div id="pb-vig-input2-mount"></div>
+      <div class="pb-vig__hint">e.g. Under -110. Both sides of a 2-way market are required.</div>
+    </div>
+  </div>
+
+  <div class="pb-vig__quick-label">Quick examples</div>
+  <div class="pb-vig__quick-grid" aria-label="Quick odds presets">
+    <button class="pb-vig__quick" type="button" data-side1="-110" data-side2="-110">-110 / -110</button>
+    <button class="pb-vig__quick" type="button" data-side1="-200" data-side2="+170">-200 / +170</button>
+    <button class="pb-vig__quick" type="button" data-side1="-150" data-side2="+130">-150 / +130</button>
+    <button class="pb-vig__quick" type="button" data-side1="+100" data-side2="-110">+100 / -110</button>
+  </div>
+
+  <div class="pb-vig__result" id="pb-vig-result" aria-live="polite">
+    <div class="pb-vig__hold-block">
+      <div class="pb-vig__hold-label">Total Hold (Vig)</div>
+      <div class="pb-vig__hold-value" id="pb-vig-hold">—</div>
+      <div class="pb-vig__hold-sub" id="pb-vig-hold-sub">Enter both sides to see the sportsbook's margin.</div>
+    </div>
+
+    <div class="pb-vig__sides">
+      <div class="pb-vig__side">
+        <div class="pb-vig__side-head">Side 1</div>
+
+        <div class="pb-vig__metric">
+          <span class="pb-vig__metric-label">Implied probability</span>
+          <span class="pb-vig__metric-value" id="pb-vig-imp1">—</span>
+        </div>
+
+        <div class="pb-vig__metric">
+          <span class="pb-vig__metric-label">No-vig fair probability</span>
+          <span class="pb-vig__metric-value pb-vig__metric-value--teal" id="pb-vig-fair-prob1">—</span>
+        </div>
+
+        <div class="pb-vig__metric">
+          <span class="pb-vig__metric-label">No-vig fair odds</span>
+          <span class="pb-vig__metric-value pb-vig__metric-value--gold" id="pb-vig-fair-odds1">—</span>
+        </div>
+      </div>
+
+      <div class="pb-vig__side">
+        <div class="pb-vig__side-head">Side 2</div>
+
+        <div class="pb-vig__metric">
+          <span class="pb-vig__metric-label">Implied probability</span>
+          <span class="pb-vig__metric-value" id="pb-vig-imp2">—</span>
+        </div>
+
+        <div class="pb-vig__metric">
+          <span class="pb-vig__metric-label">No-vig fair probability</span>
+          <span class="pb-vig__metric-value pb-vig__metric-value--teal" id="pb-vig-fair-prob2">—</span>
+        </div>
+
+        <div class="pb-vig__metric">
+          <span class="pb-vig__metric-label">No-vig fair odds</span>
+          <span class="pb-vig__metric-value pb-vig__metric-value--gold" id="pb-vig-fair-odds2">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-vig__cta">
+    <div class="pb-vig__cta-text">
+      Hunting low-hold lines?
+      <span>PropsBot tracks every book and surfaces the lowest-vig prices in real time.</span>
+    </div>
+    <a class="pb-vig__cta-btn" href="https://app.propsbot.ai/" rel="noopener">Try PropsBot Free</a>
+  </div>
+</div>
+
+<!-- JS loaded via WPCode snippet 38188 (PropsBot Tools Calculator JS) -->

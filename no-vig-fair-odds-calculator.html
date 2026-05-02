@@ -1,0 +1,71 @@
+<!-- PropsBot.AI — No-Vig Fair Odds Calculator widget
+     Self-contained HTML structure. Paste inside a WordPress Custom HTML block.
+     All styles scoped under .pb-novig to avoid theme conflicts.
+-->
+<!-- CSS loaded via WPCode CSS snippet (PropsBot Tools Calculator CSS) -->
+<div class="pb-novig" role="region" aria-label="No-Vig Fair Odds Calculator">
+  <div class="pb-novig__header">
+    <h2 class="pb-novig__title">No-Vig Fair Odds Calculator</h2>
+    <span class="pb-novig__brand">PropsBot.AI</span>
+  </div>
+
+  <div class="pb-novig__intro">
+    Enter the American odds for both sides of a 2-way market (e.g. Over / Under, Team A / Team B). The calculator strips the sportsbook's margin and shows you the "fair" no-vig price each side would offer in a zero-margin market.
+  </div>
+
+  <div class="pb-novig__inputs">
+    <div class="pb-novig__field">
+      <label class="pb-novig__label" for="pb-novig-input1">Side 1 — American Odds</label>
+      <div id="pb-novig-input1-mount"></div>
+      <div class="pb-novig__hint">e.g. Over -110, favorite -200, home team -150</div>
+    </div>
+    <div class="pb-novig__field">
+      <label class="pb-novig__label" for="pb-novig-input2">Side 2 — American Odds</label>
+      <div id="pb-novig-input2-mount"></div>
+      <div class="pb-novig__hint">e.g. Under -110, underdog +170, away team +130</div>
+    </div>
+  </div>
+
+  <div class="pb-novig__quick-grid" aria-label="Quick market presets">
+    <button class="pb-novig__quick" data-preset1="-110" data-preset2="-110" type="button">-110 / -110</button>
+    <button class="pb-novig__quick" data-preset1="-120" data-preset2="-120" type="button">-120 / -120</button>
+    <button class="pb-novig__quick" data-preset1="-200" data-preset2="+170" type="button">-200 / +170</button>
+    <button class="pb-novig__quick" data-preset1="-250" data-preset2="+200" type="button">-250 / +200</button>
+  </div>
+
+  <div class="pb-novig__result" id="pb-novig-result" aria-live="polite">
+    <div class="pb-novig__result-header">
+      <span class="pb-novig__result-label">Fair (No-Vig) Odds</span>
+      <span class="pb-novig__hold-pill" id="pb-novig-hold">Hold removed: —</span>
+    </div>
+    <div class="pb-novig__sides">
+      <div class="pb-novig__side">
+        <div class="pb-novig__side-name">Side 1</div>
+        <div class="pb-novig__side-prob" id="pb-novig-side1-prob">—</div>
+        <div class="pb-novig__side-meta">
+          <span class="pb-novig__side-american" id="pb-novig-side1-american">—</span>
+          <span class="pb-novig__side-decimal" id="pb-novig-side1-decimal">— decimal</span>
+        </div>
+      </div>
+      <div class="pb-novig__side">
+        <div class="pb-novig__side-name">Side 2</div>
+        <div class="pb-novig__side-prob" id="pb-novig-side2-prob">—</div>
+        <div class="pb-novig__side-meta">
+          <span class="pb-novig__side-american" id="pb-novig-side2-american">—</span>
+          <span class="pb-novig__side-decimal" id="pb-novig-side2-decimal">— decimal</span>
+        </div>
+      </div>
+    </div>
+    <div class="pb-novig__result-sub" id="pb-novig-sub">Enter American odds for both sides above to see the no-vig fair price.</div>
+  </div>
+
+  <div class="pb-novig__cta">
+    <div class="pb-novig__cta-text">
+      Want PropsBot's true-probability estimate?
+      <span>See AI Confidence Scores against the no-vig market on every prop.</span>
+    </div>
+    <a class="pb-novig__cta-btn" href="https://app.propsbot.ai/" rel="noopener">Try PropsBot Free</a>
+  </div>
+</div>
+
+<!-- JS loaded via WPCode snippet 38188 (PropsBot Tools Calculator JS) -->
